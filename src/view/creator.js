@@ -1,4 +1,4 @@
-class Creator {
+export class Creator {
   element = null;
   constructor(elemParams) {
     this.params = elemParams;
