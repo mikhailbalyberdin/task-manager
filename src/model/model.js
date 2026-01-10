@@ -1,5 +1,30 @@
+const nigthModeKey = "isNightMode";
+const defaultNightValue = false;
 export class Model {
   constructor() {
-    console.log("Model");
+    this.isNightMode = this.setDefaultMode();
+  }
+
+  addToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  getFromLocalStorage(key) {
+    return JSON.parse(localStorage.getItem(key));
+  }
+
+  setDefaultMode() {
+    let isData = this.getFromLocalStorage(nigthModeKey);
+    if (!isData) {
+      this.addToLocalStorage(nigthModeKey, defaultNightValue);
+      isData = defaultNightValue;
+    }
+    console.log(isData);
+    return isData;
+  }
+
+  setMode() {
+    this.isNightMode = !this.isNightMode;
+    this.addToLocalStorage(nigthModeKey, this.isNightMode);
   }
 }

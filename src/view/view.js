@@ -1,5 +1,4 @@
 import { HeaderView } from "./header_view";
-
 export class View {
   constructor() {
     this.app = document.querySelector("#app");
@@ -8,5 +7,12 @@ export class View {
   }
   build() {
     this.app.append(this.headerElement.header);
+  }
+  nightModeToggle(isNightMode) {
+    if (isNightMode) {
+      this.app.classList.add("dark");
+    } else {
+      this.app.classList.remove("dark");
+    }
   }
 }
