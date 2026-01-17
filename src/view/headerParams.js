@@ -1,15 +1,20 @@
 export const headerParams = {
-  class: ["flex", "justify-between"],
+  class: ["border-b-2"],
   tagName: "header",
 };
 
 export const logoParams = {
-  class: [],
+  class: ["size-8"],
   tagName: "img",
-  attr: { src: "/image.svg" },
+  attr: { src: "../src/images/avatar.jpg" },
 };
 
 export const buttonParams = {
-  class: ["size-8", "bg-black", "dark:bg-red-800"],
+  class: ["size-8"],
   tagName: "button",
+};
+
+export const containerParams = {
+  class: ["flex", "justify-between", "p-3"],
+  tagName: "div",
 };
