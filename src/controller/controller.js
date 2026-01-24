@@ -24,6 +24,8 @@ export class Controller {
   }
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
-    console.log(isOpenBtn);
+    if (isOpenBtn) {
+      this.view.mainElement.main.append(this.view.formElement.getForm());
+    }
   }
 }

@@ -1,10 +1,12 @@
-import { HeaderView } from "./header_view";
-import { MainView } from "./main_view";
+import { HeaderView } from "./header/header_view";
+import { MainView } from "./main/main_view";
+import { FormView } from "./form/form_view";
 export class View {
   constructor() {
     this.app = document.querySelector("#app");
     this.headerElement = new HeaderView();
     this.mainElement = new MainView();
+    this.formElement = new FormView();
     this.build();
   }
   build() {

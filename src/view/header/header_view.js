@@ -1,4 +1,4 @@
-import Creator from "./creator";
+import Creator from "../creator";
 import {
   headerParams,
   logoParams,

@@ -1,5 +1,5 @@
 import { mainParams, openButtonParams } from "./mainParams.js";
-import Creator from "./creator.js";
+import Creator from "../creator.js";
 
 export class MainView {
   constructor() {
