@@ -17,7 +17,7 @@ export class Creator {
   setText() {
     try {
       if (this.params.text) {
-        this.element.innerText(this.params.text);
+        this.element.innerText = this.params.text;
       }
     } catch (error) {
       console.log(error);

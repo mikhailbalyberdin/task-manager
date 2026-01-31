@@ -26,6 +26,14 @@ export class Controller {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
       this.view.mainElement.main.append(this.view.formElement.getForm());
+      this.view.formElement.form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const formData = new FormData(this.view.formElement.form);
+        console.log(formData);
+        console.log(formData.get("favoriteBtn"));
+        console.log(formData.get("title"));
+        console.log(formData.get("note"));
+      });
     }
   }
 }

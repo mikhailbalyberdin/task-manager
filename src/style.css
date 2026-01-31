@@ -1,2 +1,29 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+.fake-checkbox {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    /* background-image: url("./images/star-sharp-svgrepo-com.svg"); */
+    background-size: contain;
+}
+
+.fake-checkbox-svg {
+    stroke: black;
+}
+
+.real {
+    width: 0;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+}
+
+.real:checked + .fake-checkbox>.fake-checkbox-svg {
+    stroke: gold;
+}
+
+
+
