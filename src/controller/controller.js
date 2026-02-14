@@ -25,8 +25,9 @@ export class Controller {
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
-      this.view.mainElement.main.append(this.view.formElement.getForm());
-      this.view.mainElement.main.append(this.view.formElement.getfadeBlock());
+      this.view.mainElement.build(this.view.formElement.getForm());
+      this.view.mainElement.build(this.view.formElement.getfadeBlock());
+
       this.view.formElement.form.addEventListener("submit", (event) => {
         event.preventDefault();
         const formData = new FormData(this.view.formElement.form);

@@ -1,7 +1,9 @@
 const nigthModeKey = "isNightMode";
+const structureKey = "structure";
 const defaultNightValue = false;
 export class Model {
   constructor() {
+    this.structure = this.structureInit();
     this.isNightMode = this.setDefaultMode();
   }
 
@@ -26,5 +28,20 @@ export class Model {
   setMode() {
     this.isNightMode = !this.isNightMode;
     this.addToLocalStorage(nigthModeKey, this.isNightMode);
+  }
+
+  structureInit() {
+    const isStructure = this.getFromLocalStorage(structureKey);
+    if (isStructure) {
+      return isStructure;
+    }
+
+    const structure = {
+      favorite: [],
+      normal: [],
+    };
+
+    this.addToLocalStorage(structureKey, structure);
+    return structure;
   }
 }
