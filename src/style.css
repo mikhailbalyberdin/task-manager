@@ -23,7 +23,7 @@
 
 .real:checked + .fake-checkbox>.fake-checkbox-svg {
     stroke: gold;
+    color:rgba(139, 229, 187, 0.701);
 }
-
 
 

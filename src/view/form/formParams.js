@@ -2,27 +2,30 @@ export const formParams = {
   class: [
     "flex",
     "flex-col",
-    "items-center",
+    "items-start",
+    "gap-10",
     "border-2",
     "border-solid",
     "border-black",
     "absolute",
-    "z-1",
+    "z-2",
     "top-1/2",
     "left-1/2",
     "-translate-1/2",
+    "max-w-1/2",
+    "w-full",
   ],
   tagName: "form",
 };
 export const inputContainerParams = {
-  class: ["flex", "gap-x-10"],
+  class: ["flex", "justify-start", "gap-x-10", "border-b-1"],
   tagName: "div",
 };
 
 export const inputTextParams = {
-  class: [],
+  class: ["focus:outline-none"],
   tagName: "input",
-  attr: { type: "text", id: "note", name: "title", placeholder: "Add Note" },
+  attr: { type: "text", id: "note", name: "title", placeholder: "Add Title" },
 };
 
 export const labelParams = {
@@ -42,13 +45,17 @@ export const fakeCheckboxParams = {
 };
 
 export const textAreaParams = {
-  class: ["w-100"],
-  attr: { name: "note" },
+  class: [
+    "w-full",
+    "focus:shadow-[5px_5px_5px_rgba(0,0,0,0.25)]",
+    "focus:outline-none",
+  ],
+  attr: { name: "note", placeholder: "Add note" },
   tagName: "textarea",
 };
 
 export const buttonContainerParams = {
-  class: [],
+  class: ["w-full", "flex", "justify-end"],
   tagName: "div",
 };
 
@@ -64,4 +71,18 @@ export const cancelButtonParams = {
   tagName: "button",
   attr: { type: "reset" },
   text: "Cancel",
+};
+
+export const fadeBlockParams = {
+  class: [
+    "z-1",
+    "w-screen",
+    "h-screen",
+    "bg-red-200/25",
+    "backdrop-blur-sm",
+    "fixed",
+    "top-0",
+    "left-0",
+  ],
+  tagName: "div",
 };

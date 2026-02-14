@@ -10,6 +10,7 @@ import {
   buttonContainerParams,
   submitButtonParams,
   cancelButtonParams,
+  fadeBlockParams,
 } from "./formParams";
 export class FormView {
   constructor() {
@@ -18,6 +19,7 @@ export class FormView {
   }
 
   build() {
+    this.fadeBlock = new Creator(fadeBlockParams).getElement();
     this.form = new Creator(formParams).getElement();
     this.inputContainer = new Creator(inputContainerParams).getElement();
     this.textInput = new Creator(inputTextParams).getElement();
@@ -36,6 +38,10 @@ export class FormView {
     this.inputContainer.append(this.textInput, this.label);
     this.buttonContainer.append(this.submitButton, this.cancelButton);
     this.form.append(this.inputContainer, this.textArea, this.buttonContainer);
+  }
+
+  getfadeBlock() {
+    return this.fadeBlock;
   }
 
   getForm() {
