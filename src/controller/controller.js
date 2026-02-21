@@ -31,6 +31,11 @@ export class Controller {
       this.view.formElement.form.addEventListener("submit", (event) => {
         event.preventDefault();
         this.model.prepareTask(this.view.formElement.form);
+        this.view.formElement.selfRemove();
+      });
+
+      this.view.formElement.form.addEventListener("reset", () => {
+        this.view.formElement.selfRemove();
       });
     }
   }

@@ -47,4 +47,9 @@ export class FormView {
   getForm() {
     return this.form;
   }
+
+  selfRemove() {
+    this.form.remove();
+    this.fadeBlock.remove();
+  }
 }
