@@ -46,17 +46,18 @@ export class Model {
   }
 
   prepareTask(form) {
-    let formData = new FormData(form);
+    const formData = new FormData(form);
+
     const task = {
       title: formData.get("title"),
       content: formData.get("note"),
     };
-    if (formData.get("favoriteBtn") === "on") {
+
+    if (formData.get("favoriteBtn")) {
       structure.favorite.push(task);
-      this.addToLocalStorage(structureKey, structure);
     } else {
       structure.normal.push(task);
-      this.addToLocalStorage(structureKey, structure);
     }
+    this.addToLocalStorage(structureKey, structure);
   }
 }
