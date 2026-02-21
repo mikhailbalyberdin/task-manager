@@ -1,6 +1,11 @@
 const nigthModeKey = "isNightMode";
 const structureKey = "structure";
 const defaultNightValue = false;
+const structure = {
+  favorite: [],
+  normal: [],
+};
+
 export class Model {
   constructor() {
     this.structure = this.structureInit();
@@ -36,12 +41,22 @@ export class Model {
       return isStructure;
     }
 
-    const structure = {
-      favorite: [],
-      normal: [],
-    };
-
     this.addToLocalStorage(structureKey, structure);
     return structure;
+  }
+
+  prepareTask(form) {
+    let formData = new FormData(form);
+    const task = {
+      title: formData.get("title"),
+      content: formData.get("note"),
+    };
+    if (formData.get("favoriteBtn") === "on") {
+      structure.favorite.push(task);
+      this.addToLocalStorage(structureKey, structure);
+    } else {
+      structure.normal.push(task);
+      this.addToLocalStorage(structureKey, structure);
+    }
   }
 }

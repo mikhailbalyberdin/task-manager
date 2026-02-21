@@ -30,11 +30,7 @@ export class Controller {
 
       this.view.formElement.form.addEventListener("submit", (event) => {
         event.preventDefault();
-        const formData = new FormData(this.view.formElement.form);
-        console.log(formData);
-        console.log(formData.get("favoriteBtn"));
-        console.log(formData.get("title"));
-        console.log(formData.get("note"));
+        this.model.prepareTask(this.view.formElement.form);
       });
     }
   }
