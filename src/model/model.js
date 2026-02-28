@@ -47,7 +47,6 @@ export class Model {
 
   prepareTask(form) {
     const formData = new FormData(form);
-
     const task = {
       title: formData.get("title"),
       content: formData.get("note"),
@@ -55,9 +54,11 @@ export class Model {
 
     if (formData.get("favoriteBtn")) {
       structure.favorite.push(task);
+      this.addToLocalStorage(structureKey, structure);
     } else {
       structure.normal.push(task);
+      this.addToLocalStorage(structureKey, structure);
     }
-    this.addToLocalStorage(structureKey, structure);
+    // this.addToLocalStorage(structureKey, structure);
   }
 }

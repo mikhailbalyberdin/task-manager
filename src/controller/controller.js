@@ -22,17 +22,31 @@ export class Controller {
       this.eventHandler(event);
     });
   }
+
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
       this.view.mainElement.build(this.view.formElement.getForm());
       this.view.mainElement.build(this.view.formElement.getfadeBlock());
 
-      this.view.formElement.form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        this.model.prepareTask(this.view.formElement.form);
-        this.view.formElement.selfRemove();
-      });
+      this.view.formElement.form.addEventListener(
+        "submit",
+        (event) => {
+          event.preventDefault();
+          this.model.prepareTask(this.view.formElement.form);
+          this.view.formElement.selfRemove();
+          this.view.noteList.clearList();
+
+          const normalNotes =
+            this.model.getFromLocalStorage("structure").normal;
+          const favoriteNotes =
+            this.model.getFromLocalStorage("structure").favorite;
+          this.view.noteList.build(favoriteNotes);
+          this.view.noteList.build(normalNotes);
+          this.view.mainElement.build(this.view.noteList.getList());
+        },
+        { once: true },
+      );
 
       this.view.formElement.form.addEventListener("reset", () => {
         this.view.formElement.selfRemove();
