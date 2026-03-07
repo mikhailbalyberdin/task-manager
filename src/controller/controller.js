@@ -15,8 +15,10 @@ export class Controller {
   }
 
   setListeners() {
-    this.view.headerElement.button.addEventListener("click", () => {
-      this.nightModeToggle();
+    this.view.headerElement.header.addEventListener("click", (event) => {
+      if (event.target.closest("#nightMode")) {
+        this.nightModeToggle();
+      }
     });
     this.view.mainElement.main.addEventListener("click", (event) => {
       this.eventHandler(event);

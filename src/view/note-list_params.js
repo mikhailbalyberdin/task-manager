@@ -4,28 +4,34 @@ export const noteListParams = {
 };
 
 export const noteListElementParams = {
-  class: [],
+  class: ["p-5"],
   tagName: "li",
 };
 
+export const listElementContainerParams = {
+  class: ["border-4", "border-indigo-400", "shadow-xl", "rounded-md", "p-2"],
+  tagName: "div",
+};
+
 export const noteListHeaderContainer = {
-  class: [],
+  class: ["flex", "gap-5"],
   tagName: "div",
 };
 
 export const noteListTitle = {
-  class: [],
+  class: ["font-[600]", "text-blue-500", "text-[20px]"],
   tagName: "div",
 };
 
 export const noteListButtonDateContainer = {
-  class: [],
+  class: ["flex", "gap-5"],
   tagName: "div",
 };
 
 export const noteListDate = {
-  class: [],
+  class: ["text-gray-400"],
   tagName: "div",
+  text: "the date",
 };
 
 export const noteListButtonContainer = {
@@ -33,7 +39,7 @@ export const noteListButtonContainer = {
   tagName: "div",
 };
 
-export const noteListButton = {
+export const noteListDeleteButton = {
   class: [],
   tagName: "button",
 };
