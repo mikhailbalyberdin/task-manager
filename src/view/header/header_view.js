@@ -6,6 +6,8 @@ import {
   logoTextParams,
   logoImageParams,
   containerParams,
+  searchParams,
+  searchContainerParams,
 } from "./headerParams";
 
 export class HeaderView {
@@ -16,7 +18,9 @@ export class HeaderView {
   }
   build() {
     this.container.append(this.buildLogo());
-    this.container.append(this.buildButton());
+    const searchContainer = new Creator(searchContainerParams).getElement();
+    searchContainer.append(this.buildSearchButton(), this.buildButton());
+    this.container.append(searchContainer);
     this.header.append(this.container);
   }
 
@@ -26,6 +30,11 @@ export class HeaderView {
     const logo = new Creator(logoContainerParams).getElement();
     logo.append(logoImage, logoText);
     return logo;
+  }
+
+  buildSearchButton() {
+    const searchButton = new Creator(searchParams).getElement();
+    return searchButton;
   }
 
   buildButton() {

@@ -5,6 +5,7 @@ export class Creator {
     this.createTag();
     this.setText();
     this.setClass();
+    this.setHTML();
     this.setAttr();
   }
   // Add condition for params-checking
@@ -27,6 +28,12 @@ export class Creator {
   setClass() {
     if (this.params.class) {
       this.element.classList.add(...this.params.class);
+    }
+  }
+
+  setHTML() {
+    if (this.params.html) {
+      this.element.innerHTML = this.params.html;
     }
   }
 

@@ -1,20 +1,46 @@
 import {
   mainParams,
   openButtonParams,
-  buttonTextParams,
   containerParams,
+  addNotesButtonParams,
+  buttonContainerParams,
+  favNotesParams,
+  favBtnParams,
+  normalNotesParams,
+  normalBtnParams,
+  listButtonContainerParams,
 } from "./mainParams.js";
 import Creator from "../creator.js";
 
-const buttonText = new Creator(buttonTextParams).getElement();
 export class MainView {
   constructor() {
     this.main = new Creator(mainParams).getElement();
     this.container = new Creator(containerParams).getElement();
+    const buttonContainer = new Creator(buttonContainerParams).getElement();
+
+    const addNotesButton = new Creator(addNotesButtonParams).getElement();
+    const openButton = new Creator(openButtonParams).getElement();
+    addNotesButton.append(openButton);
+
+    const listButtonContainer = new Creator(
+      listButtonContainerParams,
+    ).getElement();
+    const favNotes = new Creator(favNotesParams).getElement();
+    const favBtn = new Creator(favBtnParams).getElement();
+    favNotes.append(favBtn);
+    const normalNotes = new Creator(normalNotesParams).getElement();
+    const normalBtn = new Creator(normalBtnParams).getElement();
+    normalNotes.append(normalBtn);
+    listButtonContainer.append(favNotes, normalNotes);
+
+    buttonContainer.append(addNotesButton, listButtonContainer);
+    this.container.append(buttonContainer);
+
     this.main.append(this.container);
-    this.openButton = new Creator(openButtonParams).getElement();
-    this.openButton.append(buttonText);
-    this.build(this.openButton);
+
+    // this.openButton = new Creator(openButtonParams).getElement();
+    // this.openButton.append(buttonText);
+    // this.build(this.openButton);
   }
   build(element) {
     this.container.append(element);

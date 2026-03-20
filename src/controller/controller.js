@@ -26,7 +26,7 @@ export class Controller {
   }
 
   eventHandler(event) {
-    let isOpenBtn = event.target.closest("#openBtn");
+    let isOpenBtn = event.target.closest("#addNote");
     if (isOpenBtn) {
       this.view.mainElement.build(this.view.formElement.getForm());
       this.view.mainElement.build(this.view.formElement.getfadeBlock());
