@@ -11,6 +11,9 @@ import {
   submitButtonParams,
   cancelButtonParams,
   fadeBlockParams,
+  containerParams,
+  titleLabelParams,
+  inputTextContainerParams,
 } from "./formParams";
 export class FormView {
   constructor() {
@@ -22,7 +25,15 @@ export class FormView {
     this.fadeBlock = new Creator(fadeBlockParams).getElement();
     this.form = new Creator(formParams).getElement();
     this.inputContainer = new Creator(inputContainerParams).getElement();
+
     this.textInput = new Creator(inputTextParams).getElement();
+    const inputTextContainer = new Creator(
+      inputTextContainerParams,
+    ).getElement();
+    inputTextContainer.append(this.textInput);
+    const titleLabel = new Creator(titleLabelParams).getElement();
+    const container = new Creator(containerParams).getElement();
+    container.append(titleLabel, inputTextContainer);
     this.label = new Creator(labelParams).getElement();
     this.checkboxReal = new Creator(realCheckboxParams).getElement();
     this.checkboxFake = new Creator(fakeCheckboxParams).getElement();
@@ -35,7 +46,7 @@ export class FormView {
     this.cancelButton = new Creator(cancelButtonParams).getElement();
 
     this.label.append(this.checkboxReal, this.checkboxFake);
-    this.inputContainer.append(this.textInput, this.label);
+    this.inputContainer.append(container, this.label);
     this.buttonContainer.append(this.submitButton, this.cancelButton);
     this.form.append(this.inputContainer, this.textArea, this.buttonContainer);
   }
@@ -51,5 +62,9 @@ export class FormView {
   selfRemove() {
     this.form.remove();
     this.fadeBlock.remove();
+  }
+
+  reset() {
+    this.form.reset();
   }
 }

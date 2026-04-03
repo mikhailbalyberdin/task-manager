@@ -26,7 +26,7 @@ export class Controller {
   }
 
   eventHandler(event) {
-    let isOpenBtn = event.target.closest("#addNote");
+    let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
       this.view.mainElement.build(this.view.formElement.getForm());
       this.view.mainElement.build(this.view.formElement.getfadeBlock());
@@ -36,6 +36,7 @@ export class Controller {
         (event) => {
           event.preventDefault();
           this.model.prepareTask(this.view.formElement.form);
+          this.view.formElement.reset();
           this.view.formElement.selfRemove();
           this.view.noteList.clearList();
 

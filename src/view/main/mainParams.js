@@ -22,7 +22,6 @@ export const addNotesButtonParams = {
   class: [
     "w-full",
     "h-15",
-    "relative",
     "bg-yellow-500",
     "rounded-md",
     "p-2",
@@ -35,7 +34,7 @@ export const addNotesButtonParams = {
 };
 
 export const openButtonParams = {
-  class: ["w-20", "h-20", "absolute"],
+  class: ["w-full", "h-20"],
   tagName: "button",
   attr: { id: "openBtn" },
 };

@@ -20,20 +20,22 @@ export class MainView {
 
     const addNotesButton = new Creator(addNotesButtonParams).getElement();
     const openButton = new Creator(openButtonParams).getElement();
-    addNotesButton.append(openButton);
+    openButton.append(addNotesButton);
 
     const listButtonContainer = new Creator(
       listButtonContainerParams,
     ).getElement();
     const favNotes = new Creator(favNotesParams).getElement();
     const favBtn = new Creator(favBtnParams).getElement();
-    favNotes.append(favBtn);
+    // favNotes.append(favBtn);
+    favBtn.append(favNotes);
     const normalNotes = new Creator(normalNotesParams).getElement();
     const normalBtn = new Creator(normalBtnParams).getElement();
-    normalNotes.append(normalBtn);
-    listButtonContainer.append(favNotes, normalNotes);
+    // normalNotes.append(normalBtn);
+    normalBtn.append(normalNotes);
+    listButtonContainer.append(favBtn, normalBtn);
 
-    buttonContainer.append(addNotesButton, listButtonContainer);
+    buttonContainer.append(openButton, listButtonContainer);
     this.container.append(buttonContainer);
 
     this.main.append(this.container);
