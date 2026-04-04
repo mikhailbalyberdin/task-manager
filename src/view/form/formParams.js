@@ -4,7 +4,7 @@ export const formParams = {
     "flex-col",
     "items-start",
     "p-10",
-    "gap-10",
+    "gap-5",
     "border-none",
     "rounded-md",
     "absolute",
@@ -12,47 +12,26 @@ export const formParams = {
     "top-1/2",
     "left-1/2",
     "-translate-1/2",
-    "max-w-1/4",
-    "max-h-100",
-    "h-full",
-    "w-full",
     "bg-white",
   ],
   tagName: "form",
 };
-export const inputContainerParams = {
-  class: ["flex", "justify-start", "gap-x-10"],
+
+export const topContainerParams = {
+  class: ["max-w-100", "w-full", "flex", "justify-between", "px-3"],
   tagName: "div",
 };
 
-export const containerParams = {
-  class: ["flex", "flex-col", "gap-3"],
+export const midContainerParams = {
+  class: ["max-w-100", "w-full"],
   tagName: "div",
 };
 
 export const titleLabelParams = {
   class: ["block"],
   tagName: "label",
+  attr: { for: "note" },
   text: "Title:",
-};
-
-export const inputTextContainerParams = {
-  class: ["max-w-100", "w-full", "bg-gray-500/10", "rounded-md"],
-  tagName: "div",
-};
-
-export const inputTextParams = {
-  class: [
-    "w-full",
-    "block",
-    "focus:border-blue-500",
-    "focus:outline-none",
-    "rounded-md",
-    "p-3",
-    "focus:shadow-[5px_5px_5px_rgba(0,0,0,0.25)]",
-  ],
-  tagName: "input",
-  attr: { type: "text", id: "note", name: "title", placeholder: "Add Title" },
 };
 
 export const labelParams = {
@@ -71,15 +50,35 @@ export const fakeCheckboxParams = {
   tagName: "span",
 };
 
+export const inputTextParams = {
+  class: [
+    "w-full",
+    "block",
+    "focus:border-blue-500",
+    "focus:outline-none",
+    "rounded-md",
+    "p-3",
+    "bg-gray-500/10",
+    "focus:shadow-[0px_0px_10px_rgba(0,0,0,0.25)]",
+    "transition",
+    "delay-150",
+  ],
+  tagName: "input",
+  attr: { type: "text", id: "note", name: "title", placeholder: "Add Title" },
+};
+
 export const textAreaParams = {
   class: [
     "w-full",
+    "max-h-1/4",
     "h-full",
     "bg-gray-500/10",
     "rounded-md",
     "p-3",
-    "focus:shadow-[5px_5px_5px_rgba(0,0,0,0.25)]",
+    "focus:shadow-[0px_0px_10px_rgba(0,0,0,0.25)]",
     "focus:outline-none",
+    "transition",
+    "delay-150",
   ],
   attr: { name: "note", placeholder: "Add note" },
   tagName: "textarea",
@@ -117,3 +116,18 @@ export const fadeBlockParams = {
   ],
   tagName: "div",
 };
+
+// export const inputTextContainerParams = {
+//   class: ["w-full", "bg-gray-500/10", "rounded-md"],
+//   tagName: "div",
+// };
+
+// export const containerParams = {
+//   class: ["flex", "flex-col", "gap-3"],
+//   tagName: "label",
+// };
+
+// export const inputContainerParams = {
+//   class: ["flex", "justify-start", "gap-x-10"],
+//   tagName: "div",
+// };

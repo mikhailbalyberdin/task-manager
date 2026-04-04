@@ -1,10 +1,10 @@
 export const noteListParams = {
-  class: [],
+  class: ["max-w-100", "w-full"],
   tagName: "ul",
 };
 
 export const noteListElementParams = {
-  class: ["p-5"],
+  class: ["max-w-100", "w-full", "p-2.5"],
   tagName: "li",
 };
 
@@ -14,7 +14,7 @@ export const listElementContainerParams = {
 };
 
 export const noteListHeaderContainer = {
-  class: ["flex", "gap-5"],
+  class: ["flex", "justify-between"],
   tagName: "div",
 };
 
