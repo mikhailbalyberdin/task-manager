@@ -14,67 +14,27 @@ export const buttonContainerParams = {
 };
 
 export const listButtonContainerParams = {
-  class: ["flex", "gap-5"],
+  class: ["w-full", "flex", "gap-5"],
   tagName: "div",
 };
 
 export const addNotesButtonParams = {
-  class: [
-    "w-full",
-    "h-15",
-    "bg-yellow-500",
-    "rounded-md",
-    "p-2",
-    "text-center",
-    "align-text-middle",
-  ],
-  tagName: "div",
-  text: "Add note",
-  attr: { id: "addNote" },
-};
-
-export const openButtonParams = {
-  class: ["w-full", "h-20"],
+  class: ["w-full", "bg-yellow-500", "rounded-md", "p-5", "text-center"],
   tagName: "button",
   attr: { id: "openBtn" },
-};
-
-export const favNotesParams = {
-  class: [
-    "w-47.5",
-    "h-15",
-    "bg-yellow-500",
-    "rounded-md",
-    "p-2",
-    "text-center",
-    "align-text-middle",
-  ],
-  tagName: "div",
-  text: "Favorite",
+  text: "Add Note",
 };
 
 export const favBtnParams = {
-  class: [],
+  class: ["w-full", "bg-yellow-500", "rounded-md", "p-5", "text-center"],
   tagName: "button",
   attr: { id: "favBtn" },
-};
-
-export const normalNotesParams = {
-  class: [
-    "w-47.5",
-    "h-15",
-    "bg-yellow-500",
-    "rounded-md",
-    "p-2",
-    "text-center",
-    "align-text-middle",
-  ],
-  tagName: "div",
-  text: "All",
+  text: "Favorite",
 };
 
 export const normalBtnParams = {
-  class: [],
+  class: ["w-full", "bg-yellow-500", "rounded-md", "p-2", "text-center"],
   tagName: "button",
   attr: { id: "normalBtn" },
+  text: "All",
 };

@@ -1,5 +1,7 @@
 export const formParams = {
   class: [
+    "max-w-md",
+    "w-full",
     "flex",
     "flex-col",
     "items-start",
@@ -18,17 +20,17 @@ export const formParams = {
 };
 
 export const topContainerParams = {
-  class: ["max-w-100", "w-full", "flex", "justify-between", "px-3"],
+  class: ["w-full", "flex", "justify-between"],
   tagName: "div",
 };
 
 export const midContainerParams = {
-  class: ["max-w-100", "w-full"],
+  class: ["w-full"],
   tagName: "div",
 };
 
 export const titleLabelParams = {
-  class: ["block"],
+  class: [],
   tagName: "label",
   attr: { for: "note" },
   text: "Title:",
@@ -85,19 +87,19 @@ export const textAreaParams = {
 };
 
 export const buttonContainerParams = {
-  class: ["w-full", "flex", "justify-center", "gap-5"],
+  class: ["w-full", "flex", "justify-end", "gap-5"],
   tagName: "div",
 };
 
 export const submitButtonParams = {
-  class: ["bg-green-500", "px-4", "py-2", "rounded-md"],
+  class: ["bg-green-500", "px-4", "py-2", "rounded-md", "max-w-50", "truncate"],
   tagName: "button",
   attr: { type: "submit" },
   text: "Submit",
 };
 
 export const cancelButtonParams = {
-  class: ["bg-red-500", "px-4", "py-2", "rounded-md"],
+  class: ["bg-red-500", "px-4", "py-2", "rounded-md", "max-w-50", "truncate"],
   tagName: "button",
   attr: { type: "reset" },
   text: "Cancel",
@@ -116,18 +118,3 @@ export const fadeBlockParams = {
   ],
   tagName: "div",
 };
-
-// export const inputTextContainerParams = {
-//   class: ["w-full", "bg-gray-500/10", "rounded-md"],
-//   tagName: "div",
-// };
-
-// export const containerParams = {
-//   class: ["flex", "flex-col", "gap-3"],
-//   tagName: "label",
-// };
-
-// export const inputContainerParams = {
-//   class: ["flex", "justify-start", "gap-x-10"],
-//   tagName: "div",
-// };
