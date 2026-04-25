@@ -40,12 +40,8 @@ export class Controller {
           this.view.formElement.selfRemove();
           this.view.noteList.clearList();
 
-          const normalNotes =
-            this.model.getFromLocalStorage("structure").normal;
-          const favoriteNotes =
-            this.model.getFromLocalStorage("structure").favorite;
-          this.view.noteList.build(favoriteNotes);
-          this.view.noteList.build(normalNotes);
+          const notes = this.model.getFromLocalStorage("newStructure");
+          console.log(notes);
           this.view.mainElement.build(this.view.noteList.getList());
         },
         { once: true },

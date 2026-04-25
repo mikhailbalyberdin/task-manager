@@ -1,10 +1,7 @@
 const nigthModeKey = "isNightMode";
-const structureKey = "structure";
+const structureKey = "newStructure";
 const defaultNightValue = false;
-const structure = {
-  favorite: [],
-  normal: [],
-};
+const structure = [];
 
 export class Model {
   constructor() {
@@ -50,15 +47,11 @@ export class Model {
     const task = {
       title: formData.get("title"),
       content: formData.get("note"),
+      status: formData.get("favoriteBtn"),
     };
 
-    if (formData.get("favoriteBtn")) {
-      structure.favorite.push(task);
-      this.addToLocalStorage(structureKey, structure);
-    } else {
-      structure.normal.push(task);
-      this.addToLocalStorage(structureKey, structure);
-    }
-    // this.addToLocalStorage(structureKey, structure);
+    structure.push(task);
+    this.addToLocalStorage(structureKey, structure);
+    console.log(task);
   }
 }

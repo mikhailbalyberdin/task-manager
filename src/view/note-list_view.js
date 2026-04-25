@@ -14,7 +14,6 @@ import {
 export class NoteListView {
   constructor() {
     this.list = new Creator(noteListParams).getElement();
-    console.log(this.list);
   }
   // Передавать в build заметки из модели через метод getFromLocalStorage
   build(noteList) {
