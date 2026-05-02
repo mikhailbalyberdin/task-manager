@@ -11,11 +11,11 @@ import {
   noteListContent,
   listElementContainerParams,
 } from "./note-list_params";
+
 export class NoteListView {
   constructor() {
     this.list = new Creator(noteListParams).getElement();
   }
-  // Передавать в build заметки из модели через метод getFromLocalStorage
   build(noteList) {
     for (let x of noteList) {
       const listElement = new Creator(noteListElementParams).getElement();

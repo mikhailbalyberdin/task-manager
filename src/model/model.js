@@ -1,14 +1,12 @@
 const nigthModeKey = "isNightMode";
 const structureKey = "newStructure";
 const defaultNightValue = false;
-const structure = [];
 
 export class Model {
   constructor() {
     this.structure = this.structureInit();
     this.isNightMode = this.setDefaultMode();
   }
-
   addToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   }
@@ -26,7 +24,6 @@ export class Model {
     console.log(isData);
     return isData;
   }
-
   setMode() {
     this.isNightMode = !this.isNightMode;
     this.addToLocalStorage(nigthModeKey, this.isNightMode);
@@ -37,7 +34,7 @@ export class Model {
     if (isStructure) {
       return isStructure;
     }
-
+    const structure = [];
     this.addToLocalStorage(structureKey, structure);
     return structure;
   }
@@ -50,8 +47,12 @@ export class Model {
       status: formData.get("favoriteBtn"),
     };
 
-    structure.push(task);
-    this.addToLocalStorage(structureKey, structure);
+    this.structure.push(task);
+    this.addToLocalStorage(structureKey, this.structure);
     console.log(task);
+  }
+
+  checkForm(parent, child) {
+    return parent.contains(child);
   }
 }

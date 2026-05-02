@@ -17,6 +17,7 @@ export const formParams = {
     "bg-white",
   ],
   tagName: "form",
+  attr: { id: "form" },
 };
 
 export const topContainerParams = {

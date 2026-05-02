@@ -23,33 +23,41 @@ export class Controller {
     this.view.mainElement.main.addEventListener("click", (event) => {
       this.eventHandler(event);
     });
+
+    this.view.formElement.form.addEventListener("submit", (event) => {
+      if (event.target.closest("#form")) {
+        event.preventDefault();
+        console.log("+");
+        this.model.prepareTask(this.view.formElement.form);
+        this.view.mainElement.list.build(this.model.structure);
+        this.view.formElement.reset();
+        this.view.formElement.form.classList.add("hidden");
+        this.view.formElement.fadeBlock.classList.add("hidden");
+        this.view.mainElement.list.clearList();
+        this.view.mainElement.list.build(this.model.structure);
+      }
+    });
+    this.view.formElement.form.addEventListener("reset", () => {
+      this.view.formElement.form.classList.add("hidden");
+      this.view.formElement.fadeBlock.classList.add("hidden");
+    });
   }
 
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
-      this.view.mainElement.build(this.view.formElement.getForm());
-      this.view.mainElement.build(this.view.formElement.getfadeBlock());
-
-      this.view.formElement.form.addEventListener(
-        "submit",
-        (event) => {
-          event.preventDefault();
-          this.model.prepareTask(this.view.formElement.form);
-          this.view.formElement.reset();
-          this.view.formElement.selfRemove();
-          this.view.noteList.clearList();
-
-          const notes = this.model.getFromLocalStorage("newStructure");
-          console.log(notes);
-          this.view.mainElement.build(this.view.noteList.getList());
-        },
-        { once: true },
-      );
-
-      this.view.formElement.form.addEventListener("reset", () => {
-        this.view.formElement.selfRemove();
-      });
+      if (
+        this.model.checkForm(
+          this.view.mainElement.container,
+          this.view.formElement.form,
+        )
+      ) {
+        this.view.formElement.form.classList.remove("hidden");
+        this.view.formElement.fadeBlock.classList.remove("hidden");
+      } else {
+        this.view.mainElement.add(this.view.formElement.getForm());
+        this.view.mainElement.add(this.view.formElement.getfadeBlock());
+      }
     }
   }
 }

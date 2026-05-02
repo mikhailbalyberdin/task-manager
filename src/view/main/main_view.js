@@ -8,36 +8,36 @@ import {
   listButtonContainerParams,
 } from "./mainParams.js";
 import Creator from "../creator.js";
+import { NoteListView } from "../note-list_view.js";
 
 export class MainView {
   constructor() {
     this.main = new Creator(mainParams).getElement();
     this.container = new Creator(containerParams).getElement();
+    this.build();
+  }
+  build() {
     const buttonContainer = new Creator(buttonContainerParams).getElement();
 
     const addNotesButton = new Creator(addNotesButtonParams).getElement();
-    // const openButton = new Creator(openButtonParams).getElement();
-    // openButton.append(addNotesButton);
 
     const listButtonContainer = new Creator(
       listButtonContainerParams,
     ).getElement();
     const favBtn = new Creator(favBtnParams).getElement();
-    // favNotes.append(favBtn);
     const normalBtn = new Creator(normalBtnParams).getElement();
-    // normalNotes.append(normalBtn);
     listButtonContainer.append(favBtn, normalBtn);
 
     buttonContainer.append(addNotesButton, listButtonContainer);
     this.container.append(buttonContainer);
 
-    this.main.append(this.container);
+    this.list = new NoteListView();
+    this.container.append(this.list.list);
 
-    // this.openButton = new Creator(openButtonParams).getElement();
-    // this.openButton.append(buttonText);
-    // this.build(this.openButton);
+    this.main.append(this.container);
   }
-  build(element) {
+
+  add(element) {
     this.container.append(element);
   }
 }

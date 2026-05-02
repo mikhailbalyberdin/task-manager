@@ -70,10 +70,10 @@ export class FormView {
     return this.form;
   }
 
-  selfRemove() {
-    this.form.remove();
-    this.fadeBlock.remove();
-  }
+  // selfRemove() {
+  //   this.form.remove();
+  //   this.fadeBlock.remove();
+  // }
 
   reset() {
     this.form.reset();
