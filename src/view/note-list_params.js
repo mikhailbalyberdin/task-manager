@@ -40,7 +40,17 @@ export const noteListButtonContainer = {
 };
 
 export const noteListDeleteButton = {
-  class: [],
+  class: ["w-5", "h-5", "bg-[url(/trash-bin.svg)]", "bg-cover"],
+  tagName: "button",
+};
+
+export const noteListEditButton = {
+  class: ["w-5", "h-5", "bg-[url(/edit.svg)]", "bg-cover"],
+  tagName: "button",
+};
+
+export const noteListFavoritesButton = {
+  class: ["w-5", "h-5", "bg-[url(/favorite.svg)]", "bg-cover"],
   tagName: "button",
 };
 

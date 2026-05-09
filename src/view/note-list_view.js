@@ -10,6 +10,8 @@ import {
   noteListDeleteButton,
   noteListContent,
   listElementContainerParams,
+  noteListEditButton,
+  noteListFavoritesButton,
 } from "./note-list_params";
 
 export class NoteListView {
@@ -34,11 +36,13 @@ export class NoteListView {
       const date = new Creator(noteListDate).getElement();
       const buttonContainer = new Creator(noteListButtonContainer).getElement();
       const deleteButton = new Creator(noteListDeleteButton).getElement();
+      const editButton = new Creator(noteListEditButton).getElement();
+      const favoritesButton = new Creator(noteListFavoritesButton).getElement();
 
       const content = new Creator(noteListContent).getElement();
       content.innerHTML = x.content;
 
-      buttonContainer.append(deleteButton);
+      buttonContainer.append(deleteButton, editButton, favoritesButton);
       buttonDateContainer.append(date, buttonContainer);
       headerContainer.append(title, buttonDateContainer);
 
