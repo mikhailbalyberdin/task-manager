@@ -19,15 +19,14 @@ export class NoteListView {
     this.list = new Creator(noteListParams).getElement();
   }
 
-  date() {
-    const dateOfTask = new Date();
-    return (
-      dateOfTask.getUTCDate() +
-      "." +
-      dateOfTask.getUTCMonth() +
-      "." +
-      dateOfTask.getUTCFullYear()
-    );
+  setDate() {
+    const event = new Date();
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+    return event.toLocaleDateString("en-en", options);
   }
 
   build(noteList) {
@@ -46,7 +45,7 @@ export class NoteListView {
         noteListButtonDateContainer,
       ).getElement();
       const date = new Creator(noteListDate).getElement();
-      date.innerHTML = this.date();
+      date.innerHTML = this.setDate();
       const buttonContainer = new Creator(noteListButtonContainer).getElement();
       const deleteButton = new Creator(noteListDeleteButton).getElement();
       const editButton = new Creator(noteListEditButton).getElement();
