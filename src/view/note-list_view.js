@@ -30,7 +30,8 @@ export class NoteListView {
   }
 
   build(noteList) {
-    for (let x of noteList) {
+    for (let elem of noteList) {
+      noteListElementParams.attr.id = elem.id;
       const listElement = new Creator(noteListElementParams).getElement();
       const listElementContainer = new Creator(
         listElementContainerParams,
@@ -39,7 +40,7 @@ export class NoteListView {
       const headerContainer = new Creator(noteListHeaderContainer).getElement();
 
       const title = new Creator(noteListTitle).getElement();
-      title.innerHTML = x.title;
+      title.innerHTML = elem.title;
 
       const buttonDateContainer = new Creator(
         noteListButtonDateContainer,
@@ -52,7 +53,7 @@ export class NoteListView {
       const favoritesButton = new Creator(noteListFavoritesButton).getElement();
 
       const content = new Creator(noteListContent).getElement();
-      content.innerHTML = x.content;
+      content.innerHTML = elem.content;
 
       buttonContainer.append(deleteButton, editButton, favoritesButton);
       buttonDateContainer.append(date, buttonContainer);

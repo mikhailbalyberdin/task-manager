@@ -41,6 +41,14 @@ export class Controller {
       this.view.formElement.form.classList.add("hidden");
       this.view.formElement.fadeBlock.classList.add("hidden");
     });
+
+    this.view.mainElement.list.list.addEventListener("click", (event) => {
+      const isTrashBtn = event.target.closest("[data-trash-btn");
+      const isNodeElemId = event.target.closest("[data-node]").id;
+      if (isTrashBtn && isNodeElemId) {
+        console.log(event.target);
+      }
+    });
   }
 
   eventHandler(event) {

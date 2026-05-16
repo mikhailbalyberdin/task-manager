@@ -6,6 +6,7 @@ export const noteListParams = {
 export const noteListElementParams = {
   class: ["max-w-100", "w-full", "p-2.5"],
   tagName: "li",
+  attr: { id: 0, "data-node": "" },
 };
 
 export const listElementContainerParams = {
@@ -41,6 +42,7 @@ export const noteListButtonContainer = {
 export const noteListDeleteButton = {
   class: ["w-5", "h-5", "bg-[url(/trash-bin.svg)]", "bg-cover"],
   tagName: "button",
+  attr: { "data-trash-btn": "" },
 };
 
 export const noteListEditButton = {

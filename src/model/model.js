@@ -45,6 +45,7 @@ export class Model {
       title: formData.get("title"),
       content: formData.get("note"),
       status: formData.get("favoriteBtn"),
+      id: this.structure.length,
     };
 
     this.structure.push(task);
