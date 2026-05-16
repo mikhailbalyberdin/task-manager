@@ -31,7 +31,6 @@ export const noteListButtonDateContainer = {
 export const noteListDate = {
   class: ["text-gray-400"],
   tagName: "div",
-  text: "the date",
 };
 
 export const noteListButtonContainer = {

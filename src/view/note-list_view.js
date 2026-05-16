@@ -18,6 +18,18 @@ export class NoteListView {
   constructor() {
     this.list = new Creator(noteListParams).getElement();
   }
+
+  date() {
+    const dateOfTask = new Date();
+    return (
+      dateOfTask.getUTCDate() +
+      "." +
+      dateOfTask.getUTCMonth() +
+      "." +
+      dateOfTask.getUTCFullYear()
+    );
+  }
+
   build(noteList) {
     for (let x of noteList) {
       const listElement = new Creator(noteListElementParams).getElement();
@@ -34,6 +46,7 @@ export class NoteListView {
         noteListButtonDateContainer,
       ).getElement();
       const date = new Creator(noteListDate).getElement();
+      date.innerHTML = this.date();
       const buttonContainer = new Creator(noteListButtonContainer).getElement();
       const deleteButton = new Creator(noteListDeleteButton).getElement();
       const editButton = new Creator(noteListEditButton).getElement();
