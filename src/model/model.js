@@ -7,6 +7,7 @@ export class Model {
     this.structure = this.structureInit();
     this.isNightMode = this.setDefaultMode();
   }
+
   addToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   }
@@ -51,6 +52,11 @@ export class Model {
     this.structure.push(task);
     this.addToLocalStorage(structureKey, this.structure);
     console.log(task);
+  }
+
+  deleteTask(index) {
+    this.structure.splice(index, 1);
+    this.addToLocalStorage(structureKey, this.structure);
   }
 
   checkForm(parent, child) {

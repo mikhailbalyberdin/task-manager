@@ -46,7 +46,9 @@ export class Controller {
       const isTrashBtn = event.target.closest("[data-trash-btn");
       const isNodeElemId = event.target.closest("[data-node]").id;
       if (isTrashBtn && isNodeElemId) {
-        console.log(event.target);
+        this.model.deleteTask(isNodeElemId);
+        this.view.mainElement.list.clearList();
+        this.view.mainElement.list.build(this.model.structure);
       }
     });
   }

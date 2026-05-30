@@ -31,7 +31,7 @@ export class NoteListView {
 
   build(noteList) {
     for (let elem of noteList) {
-      noteListElementParams.attr.id = elem.id;
+      noteListElementParams.attr.id = noteList.indexOf(elem);
       const listElement = new Creator(noteListElementParams).getElement();
       const listElementContainer = new Creator(
         listElementContainerParams,
