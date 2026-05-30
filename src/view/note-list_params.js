@@ -55,6 +55,11 @@ export const noteListFavoritesButton = {
   tagName: "button",
 };
 
+export const noteListRegularButton = {
+  class: ["w-5", "h-5", "bg-[url(/regular.svg)]", "bg-cover"],
+  tagName: "button",
+};
+
 export const noteListContent = {
   class: [],
   tagName: "div",
