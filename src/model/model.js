@@ -58,6 +58,15 @@ export class Model {
     this.addToLocalStorage(structureKey, this.structure);
   }
 
+  changeStatus(index) {
+    if (this.structure[index].status === "on") {
+      this.structure[index].status = "null";
+    } else {
+      this.structure[index].status = "on";
+    }
+    this.addToLocalStorage(structureKey, this.structure);
+  }
+
   checkForm(parent, child) {
     return parent.contains(child);
   }

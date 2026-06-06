@@ -52,11 +52,13 @@ export const noteListEditButton = {
 
 export const noteListFavoritesButton = {
   class: ["w-5", "h-5", "bg-[url(/favorite.svg)]", "bg-cover"],
+  attr: { "data-status-btn": "" },
   tagName: "button",
 };
 
 export const noteListRegularButton = {
   class: ["w-5", "h-5", "bg-[url(/regular.svg)]", "bg-cover"],
+  attr: { "data-status-btn": "" },
   tagName: "button",
 };
 

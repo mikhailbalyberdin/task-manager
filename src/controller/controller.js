@@ -43,10 +43,18 @@ export class Controller {
     });
 
     this.view.mainElement.list.list.addEventListener("click", (event) => {
-      const isTrashBtn = event.target.closest("[data-trash-btn");
+      const isTrashBtn = event.target.closest("[data-trash-btn]");
       const isNodeElemId = event.target.closest("[data-node]").id;
+      const isStatusBtn = event.target.closest("[data-status-btn]");
       if (isTrashBtn && isNodeElemId) {
+        console.log("hi");
         this.model.deleteTask(isNodeElemId);
+        this.view.mainElement.list.clearList();
+        this.view.mainElement.list.build(this.model.structure);
+      }
+      if (isStatusBtn && isNodeElemId) {
+        this.model.changeStatus(isNodeElemId);
+        console.log(this.model.structure);
         this.view.mainElement.list.clearList();
         this.view.mainElement.list.build(this.model.structure);
       }

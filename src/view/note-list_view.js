@@ -52,7 +52,7 @@ export class NoteListView {
       const deleteButton = new Creator(noteListDeleteButton).getElement();
       const editButton = new Creator(noteListEditButton).getElement();
       let favoriteButton = null;
-      if (elem.status) {
+      if (elem.status === "on") {
         favoriteButton = new Creator(noteListFavoritesButton).getElement();
       } else {
         favoriteButton = new Creator(noteListRegularButton).getElement();
