@@ -19,17 +19,6 @@ export class NoteListView {
   constructor() {
     this.list = new Creator(noteListParams).getElement();
   }
-
-  setDate() {
-    const event = new Date();
-    const options = {
-      year: "numeric",
-      month: "numeric",
-      day: "numeric",
-    };
-    return event.toLocaleDateString("en-en", options);
-  }
-
   build(noteList) {
     for (let elem of noteList) {
       noteListElementParams.attr.id = noteList.indexOf(elem);
@@ -47,12 +36,12 @@ export class NoteListView {
         noteListButtonDateContainer,
       ).getElement();
       const date = new Creator(noteListDate).getElement();
-      date.innerHTML = this.setDate();
+      date.innerHTML = elem.date;
       const buttonContainer = new Creator(noteListButtonContainer).getElement();
       const deleteButton = new Creator(noteListDeleteButton).getElement();
       const editButton = new Creator(noteListEditButton).getElement();
       let favoriteButton = null;
-      if (elem.status === "on") {
+      if (elem.status) {
         favoriteButton = new Creator(noteListFavoritesButton).getElement();
       } else {
         favoriteButton = new Creator(noteListRegularButton).getElement();

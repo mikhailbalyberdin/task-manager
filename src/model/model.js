@@ -45,6 +45,7 @@ export class Model {
       title: formData.get("title"),
       content: formData.get("note"),
       status: formData.get("favoriteBtn"),
+      date: this.setDate(),
     };
     console.log(task.status);
 
@@ -65,6 +66,16 @@ export class Model {
       this.structure[index].status = "on";
     }
     this.addToLocalStorage(structureKey, this.structure);
+  }
+
+  setDate() {
+    const event = new Date();
+    const options = {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+    };
+    return event.toLocaleDateString("en-en", options);
   }
 
   checkForm(parent, child) {
