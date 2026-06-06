@@ -18,17 +18,23 @@ import {
   midContainerParams,
 } from "./formParams";
 export class FormView {
-  constructor() {
+  constructor(task = null) {
     this.form = null;
-    this.build();
+    this.build(task);
   }
 
-  build() {
+  build(task) {
     this.fadeBlock = new Creator(fadeBlockParams).getElement();
     this.form = new Creator(formParams).getElement();
     // const inputContainer = new Creator(inputContainerParams).getElement();
 
-    const textInput = new Creator(inputTextParams).getElement();
+    let textInput = null;
+    if (task.title) {
+      inputTextParams.attr.value = task.title;
+      textInput = new Creator(inputTextParams).getElement();
+    } else {
+      textInput = new Creator(inputTextParams).getElement();
+    }
 
     const titleLabel = new Creator(titleLabelParams).getElement();
     // const container = new Creator(containerParams).getElement();
@@ -46,11 +52,6 @@ export class FormView {
     const buttonContainer = new Creator(buttonContainerParams).getElement();
     const submitButton = new Creator(submitButtonParams).getElement();
     const cancelButton = new Creator(cancelButtonParams).getElement();
-    // this.buttonContainer.append(this.submitButton, this.cancelButton);
-
-    // container.append(this.label, inputTextContainer);
-    // this.inputContainer.append(container, this.label);
-    // this.form.append(this.inputContainer, this.textArea, this.buttonContainer);
     const topContainer = new Creator(topContainerParams).getElement();
     topContainer.append(titleLabel, label);
 
