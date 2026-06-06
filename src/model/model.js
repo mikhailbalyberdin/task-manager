@@ -22,7 +22,6 @@ export class Model {
       this.addToLocalStorage(nigthModeKey, defaultNightValue);
       isData = defaultNightValue;
     }
-    console.log(isData);
     return isData;
   }
   setMode() {
@@ -47,6 +46,7 @@ export class Model {
       content: formData.get("note"),
       status: formData.get("favoriteBtn"),
     };
+    console.log(task.status);
 
     this.structure.push(task);
     this.addToLocalStorage(structureKey, this.structure);
@@ -59,8 +59,8 @@ export class Model {
   }
 
   changeStatus(index) {
-    if (this.structure[index].status === "on") {
-      this.structure[index].status = "null";
+    if (this.structure[index].status) {
+      this.structure[index].status = null;
     } else {
       this.structure[index].status = "on";
     }
