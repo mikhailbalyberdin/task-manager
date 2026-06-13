@@ -47,6 +47,7 @@ export const noteListDeleteButton = {
 
 export const noteListEditButton = {
   class: ["w-5", "h-5", "bg-[url(/edit.svg)]", "bg-cover"],
+  attr: { "data-edit-btn": "" },
   tagName: "button",
 };
 

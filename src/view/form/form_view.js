@@ -29,7 +29,7 @@ export class FormView {
     // const inputContainer = new Creator(inputContainerParams).getElement();
 
     let textInput = null;
-    if (task.title) {
+    if (task) {
       inputTextParams.attr.value = task.title;
       textInput = new Creator(inputTextParams).getElement();
     } else {
@@ -40,6 +40,11 @@ export class FormView {
     // const container = new Creator(containerParams).getElement();
 
     const label = new Creator(labelParams).getElement();
+    if (task) {
+      realCheckboxParams.attr.checked = true;
+    } else {
+      realCheckboxParams.attr.checked = false;
+    }
     const checkboxReal = new Creator(realCheckboxParams).getElement();
     const checkboxFake = new Creator(fakeCheckboxParams).getElement();
     checkboxFake.innerHTML = `<svg class="fake-checkbox-svg"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,8 +53,18 @@ export class FormView {
     label.append(checkboxReal, checkboxFake);
     // container.append(titleLabel, this.label);
 
+    if (task) {
+      textAreaParams.attr.value = task.content;
+    } else {
+      textAreaParams.attr.value = "";
+    }
     const textArea = new Creator(textAreaParams).getElement();
     const buttonContainer = new Creator(buttonContainerParams).getElement();
+    if (task) {
+      submitButtonParams.text = "Edit";
+    } else {
+      submitButtonParams.text = "Submit";
+    }
     const submitButton = new Creator(submitButtonParams).getElement();
     const cancelButton = new Creator(cancelButtonParams).getElement();
     const topContainer = new Creator(topContainerParams).getElement();
@@ -63,18 +78,21 @@ export class FormView {
     this.form.append(topContainer, midContainer, textArea, buttonContainer);
   }
 
-  getfadeBlock() {
-    return this.fadeBlock;
-  }
+  // getfadeBlock() {
+  //   return this.fadeBlock;
+  // }
 
-  getForm() {
+  getForm(task = null) {
+    if (task) {
+      this.build(task);
+    }
     return this.form;
   }
 
-  // selfRemove() {
-  //   this.form.remove();
-  //   this.fadeBlock.remove();
-  // }
+  selfRemove() {
+    this.form.remove();
+    this.fadeBlock.remove();
+  }
 
   reset() {
     this.form.reset();

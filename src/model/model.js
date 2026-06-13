@@ -78,6 +78,10 @@ export class Model {
     return event.toLocaleDateString("en-en", options);
   }
 
+  getTask(index) {
+    return this.structure[index];
+  }
+
   checkForm(parent, child) {
     return parent.contains(child);
   }
