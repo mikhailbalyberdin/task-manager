@@ -53,12 +53,10 @@ export class FormView {
     label.append(checkboxReal, checkboxFake);
     // container.append(titleLabel, this.label);
 
-    if (task) {
-      textAreaParams.attr.value = task.content;
-    } else {
-      textAreaParams.attr.value = "";
-    }
     const textArea = new Creator(textAreaParams).getElement();
+    if (task) {
+      textArea.value = task.content;
+    }
     const buttonContainer = new Creator(buttonContainerParams).getElement();
     if (task) {
       submitButtonParams.text = "Edit";

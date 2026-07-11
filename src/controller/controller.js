@@ -8,6 +8,7 @@ export class Controller {
     this.view = new View();
     this.formElement = new FormView();
     this.setListeners();
+    this.formListener();
     this.view.nightModeToggle(this.model.isNightMode);
   }
 
@@ -44,24 +45,23 @@ export class Controller {
       if (isEditBtn && isNodeElemId) {
         const task = this.model.getTask(isNodeElemId);
         this.view.mainElement.add(this.formElement.getForm(task));
+        this.view.mainElement.add(this.formElement.fadeBlock);
       }
     });
   }
 
   formListener() {
-    this.formElement.form.addEventListener("submit", (event) => {
+    this.view.mainElement.main.addEventListener("submit", (event) => {
       if (event.target.closest("#form")) {
         event.preventDefault();
-        this.model.prepareTask(this.formElement.form);
-        this.view.mainElement.list.build(this.model.structure);
-        this.formElement.reset();
-        this.formElement.selfRemove();
+        this.model.prepareTask(event.target);
         this.view.mainElement.list.clearList();
         this.view.mainElement.list.build(this.model.structure);
+        this.formElement.selfRemove();
       }
-    });
-    this.formElement.form.addEventListener("reset", () => {
-      this.formElement.selfRemove();
+      this.view.mainElement.main.addEventListener("reset", () => {
+        this.formElement.selfRemove();
+      });
     });
   }
 
@@ -70,7 +70,6 @@ export class Controller {
     if (isOpenBtn) {
       this.view.mainElement.add(this.formElement.getForm());
       this.view.mainElement.add(this.formElement.fadeBlock);
-      this.formListener();
     }
   }
 }
