@@ -46,6 +46,7 @@ export class Controller {
         const task = this.model.getTask(isNodeElemId);
         this.view.mainElement.add(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.fadeBlock);
+        this.model.deleteTask(isNodeElemId);
       }
     });
   }

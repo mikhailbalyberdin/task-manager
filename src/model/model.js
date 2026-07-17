@@ -45,15 +45,21 @@ export class Model {
       title: formData.get("title"),
       content: formData.get("note"),
       status: formData.get("favoriteBtn"),
+      isChanged: false, // isChanged is rewritten after submission
       date: this.setDate(),
     };
     console.log(task.status);
+    console.log(formData);
 
     this.structure.push(task);
     this.addToLocalStorage(structureKey, this.structure);
     console.log(task);
   }
-
+  changeEditStatus(index) {
+    if (!this.structure[index].isChanged) {
+      this.structure[index].isChanged = true;
+    }
+  }
   deleteTask(index) {
     this.structure.splice(index, 1);
     this.addToLocalStorage(structureKey, this.structure);
@@ -65,6 +71,7 @@ export class Model {
     } else {
       this.structure[index].status = "on";
     }
+    this.changeEditStatus(index);
     this.addToLocalStorage(structureKey, this.structure);
   }
 
