@@ -55,9 +55,31 @@ export class Model {
     this.addToLocalStorage(structureKey, this.structure);
     console.log(task);
   }
+
+  editTask(index, form) {
+    const formData = new FormData(form);
+    if (this.structure[index].title !== formData.get("title")) {
+      this.structure[index].title = formData.get("title");
+      this.structure[index].date = this.setDate();
+      this.structure[index].isChanged = true;
+    }
+    if (this.structure[index].content === formData.get("content")) {
+      this.structure[index].content = formData.get("content");
+      this.structure[index].date = this.setDate();
+      this.structure[index].isChanged = true;
+    }
+    if (this.structure[index].status === formData.get("status")) {
+      this.structure[index].status = formData.get("status");
+      this.structure[index].date = this.setDate();
+      this.structure[index].isChanged = true;
+    }
+    this.addToLocalStorage(structureKey, this.structure);
+  }
+
   changeEditStatus(index) {
     if (!this.structure[index].isChanged) {
       this.structure[index].isChanged = true;
+      this.addToLocalStorage(structureKey, this.structure);
     }
   }
   deleteTask(index) {

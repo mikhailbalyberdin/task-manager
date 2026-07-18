@@ -29,40 +29,55 @@ export class Controller {
 
     this.view.mainElement.list.list.addEventListener("click", (event) => {
       const isTrashBtn = event.target.closest("[data-trash-btn]");
-      const isNodeElemId = event.target.closest("[data-node]").id;
+      this.isNodeElemId = event.target.closest("[data-node]").id;
       const isStatusBtn = event.target.closest("[data-status-btn]");
       const isEditBtn = event.target.closest("[data-edit-btn]");
-      if (isTrashBtn && isNodeElemId) {
-        this.model.deleteTask(isNodeElemId);
+      if (isTrashBtn && this.isNodeElemId) {
+        this.model.deleteTask(this.isNodeElemId);
         this.view.mainElement.list.clearList();
         this.view.mainElement.list.build(this.model.structure);
       }
-      if (isStatusBtn && isNodeElemId) {
-        this.model.changeStatus(isNodeElemId);
+      if (isStatusBtn && this.isNodeElemId) {
+        this.model.changeStatus(this.isNodeElemId);
         this.view.mainElement.list.clearList();
         this.view.mainElement.list.build(this.model.structure);
       }
-      if (isEditBtn && isNodeElemId) {
-        const task = this.model.getTask(isNodeElemId);
+      if (isEditBtn && this.isNodeElemId) {
+        const task = this.model.getTask(this.isNodeElemId);
         this.view.mainElement.add(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.fadeBlock);
-        this.model.deleteTask(isNodeElemId);
       }
     });
   }
 
   formListener() {
-    this.view.mainElement.main.addEventListener("submit", (event) => {
+    this.view.mainElement.main.addEventListener("click", (event) => {
       if (event.target.closest("#form")) {
-        event.preventDefault();
-        this.model.prepareTask(event.target);
-        this.view.mainElement.list.clearList();
-        this.view.mainElement.list.build(this.model.structure);
-        this.formElement.selfRemove();
+        if (event.target.closest("#submit")) {
+          event.preventDefault();
+          console.log(event.target);
+          this.model.prepareTask(event.target.closest("#form"));
+          this.view.mainElement.list.clearList();
+          this.view.mainElement.list.build(this.model.structure);
+          this.formElement.selfRemove();
+        }
       }
-      this.view.mainElement.main.addEventListener("reset", () => {
-        this.formElement.selfRemove();
-      });
+    });
+
+    this.view.mainElement.main.addEventListener("click", (event) => {
+      if (event.target.closest("#form")) {
+        if (event.target.closest("#edit")) {
+          event.preventDefault();
+          console.log(event.target);
+          this.model.editTask(this.isNodeElemId, event.target.closest("#form"));
+          this.view.mainElement.list.clearList();
+          this.view.mainElement.list.build(this.model.structure);
+          this.formElement.selfRemove();
+        }
+      }
+    });
+    this.view.mainElement.main.addEventListener("reset", () => {
+      this.formElement.selfRemove();
     });
   }
 

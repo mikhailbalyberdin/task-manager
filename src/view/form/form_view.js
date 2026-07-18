@@ -59,6 +59,7 @@ export class FormView {
     }
     const buttonContainer = new Creator(buttonContainerParams).getElement();
     if (task) {
+      submitButtonParams.attr.id = "edit";
       submitButtonParams.text = "Edit";
     } else {
       submitButtonParams.text = "Submit";

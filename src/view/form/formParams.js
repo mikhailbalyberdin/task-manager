@@ -95,7 +95,7 @@ export const buttonContainerParams = {
 export const submitButtonParams = {
   class: ["bg-green-500", "px-4", "py-2", "rounded-md", "max-w-50", "truncate"],
   tagName: "button",
-  attr: { type: "submit" },
+  attr: { type: "submit", id: "submit" },
   text: "Submit",
 };
 
