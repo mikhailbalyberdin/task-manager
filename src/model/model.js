@@ -63,12 +63,12 @@ export class Model {
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
-    if (this.structure[index].content === formData.get("content")) {
+    if (this.structure[index].content !== formData.get("content")) {
       this.structure[index].content = formData.get("content");
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
-    if (this.structure[index].status === formData.get("status")) {
+    if (this.structure[index].status !== formData.get("status")) {
       this.structure[index].status = formData.get("status");
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;

@@ -19,8 +19,14 @@ export class NoteListView {
   constructor() {
     this.list = new Creator(noteListParams).getElement();
   }
-  build(noteList) {
-    for (let elem of noteList) {
+  build(noteList, isFavorite = null) {
+    let currentList = null;
+    if (!isFavorite) {
+      currentList = noteList;
+    } else {
+      currentList = noteList.filter((task) => task.status);
+    }
+    for (let elem of currentList) {
       noteListElementParams.attr.id = noteList.indexOf(elem);
       const listElement = new Creator(noteListElementParams).getElement();
       const listElementContainer = new Creator(

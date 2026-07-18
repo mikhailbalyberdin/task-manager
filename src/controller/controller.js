@@ -48,6 +48,13 @@ export class Controller {
         this.view.mainElement.add(this.formElement.fadeBlock);
       }
     });
+
+    this.view.mainElement.main.addEventListener("click", (event) => {
+      if (event.target.closest("#favBtn")) {
+        this.view.mainElement.list.clearList();
+        this.view.mainElement.list.build(this.model.structure, true);
+      }
+    });
   }
 
   formListener() {
