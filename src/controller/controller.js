@@ -54,6 +54,10 @@ export class Controller {
         this.view.mainElement.list.clearList();
         this.view.mainElement.list.build(this.model.structure, true);
       }
+      if (event.target.closest("#normalBtn")) {
+        this.view.mainElement.list.clearList();
+        this.view.mainElement.list.build(this.model.structure);
+      }
     });
   }
 
