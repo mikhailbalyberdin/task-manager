@@ -14,12 +14,13 @@ export class HeaderView {
   constructor() {
     this.header = new Creator(headerParams).getElement();
     this.container = new Creator(containerParams).getElement();
+    this.searchButton = this.buildSearchButton();
     this.build();
   }
   build() {
     this.container.append(this.buildLogo());
     const searchContainer = new Creator(searchContainerParams).getElement();
-    searchContainer.append(this.buildSearchButton(), this.buildButton());
+    searchContainer.append(this.searchButton, this.buildButton());
     this.container.append(searchContainer);
     this.header.append(this.container);
   }

@@ -97,6 +97,15 @@ export class Model {
     this.addToLocalStorage(structureKey, this.structure);
   }
 
+  searchString(string) {
+    const matchedArray = this.structure.filter(
+      (task) =>
+        task.title.toLowerCase()?.includes(string) ||
+        task.content.toLowerCase()?.includes(string),
+    );
+    return matchedArray;
+  }
+
   setDate() {
     const event = new Date();
     const options = {

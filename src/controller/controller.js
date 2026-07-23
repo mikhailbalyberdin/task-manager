@@ -10,11 +10,21 @@ export class Controller {
     this.setListeners();
     this.formListener();
     this.view.nightModeToggle(this.model.isNightMode);
+    this.searchString();
   }
 
   nightModeToggle() {
     this.model.setMode();
     this.view.nightModeToggle(this.model.isNightMode);
+  }
+
+  searchString() {
+    const searchInput = this.view.headerElement.searchButton;
+    searchInput.addEventListener("input", () => {
+      const searchArray = this.model.searchString(searchInput.value);
+      this.view.mainElement.list.clearList();
+      this.view.mainElement.list.build(searchArray);
+    });
   }
 
   setListeners() {
@@ -100,5 +110,3 @@ export class Controller {
     }
   }
 }
-
-// 1.

@@ -29,7 +29,7 @@ export const searchParams = {
     "focus:outline-none",
   ],
   tagName: "input",
-  attr: { type: "text", placeholder: "Search" },
+  attr: { type: "text", name: "search", placeholder: "Search" },
 };
 
 export const buttonParams = {

@@ -40,10 +40,10 @@ export class FormView {
     // const container = new Creator(containerParams).getElement();
 
     const label = new Creator(labelParams).getElement();
-    if (task) {
+    if (task?.status) {
       realCheckboxParams.attr.checked = true;
     } else {
-      realCheckboxParams.attr.checked = false;
+      delete realCheckboxParams.attr.checked;
     }
     const checkboxReal = new Creator(realCheckboxParams).getElement();
     const checkboxFake = new Creator(fakeCheckboxParams).getElement();
