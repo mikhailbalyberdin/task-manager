@@ -54,6 +54,7 @@ export class Controller {
       }
       if (isEditBtn && this.isNodeElemId) {
         const task = this.model.getTask(this.isNodeElemId);
+        console.log(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.fadeBlock);
       }
@@ -105,7 +106,8 @@ export class Controller {
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
-      this.view.mainElement.add(this.formElement.getForm());
+      console.log(this.formElement.getForm());
+      this.view.mainElement.add(this.formElement.getForm(null));
       this.view.mainElement.add(this.formElement.fadeBlock);
     }
   }

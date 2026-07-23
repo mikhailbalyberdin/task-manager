@@ -28,12 +28,9 @@ export class FormView {
     this.form = new Creator(formParams).getElement();
     // const inputContainer = new Creator(inputContainerParams).getElement();
 
-    let textInput = null;
+    const textInput = new Creator(inputTextParams).getElement();
     if (task) {
-      inputTextParams.attr.value = task.title;
-      textInput = new Creator(inputTextParams).getElement();
-    } else {
-      textInput = new Creator(inputTextParams).getElement();
+      textInput.value = task.title;
     }
 
     const titleLabel = new Creator(titleLabelParams).getElement();
@@ -53,18 +50,27 @@ export class FormView {
     label.append(checkboxReal, checkboxFake);
     // container.append(titleLabel, this.label);
 
-    const textArea = new Creator(textAreaParams).getElement();
+    // const textArea = new Creator(textAreaParams).getElement();
+    let textArea = null;
     if (task) {
+      const cloneTextAreaParams = { ...textAreaParams };
+      cloneTextAreaParams.value = task.content;
+      textArea = new Creator(cloneTextAreaParams).getElement();
       textArea.value = task.content;
+    } else {
+      textArea = new Creator(textAreaParams).getElement();
     }
     const buttonContainer = new Creator(buttonContainerParams).getElement();
+    let submitButton = null;
     if (task) {
       submitButtonParams.attr.id = "edit";
       submitButtonParams.text = "Edit";
+      submitButton = new Creator(submitButtonParams).getElement();
     } else {
       submitButtonParams.text = "Submit";
+      submitButtonParams.attr.id = "submit";
+      submitButton = new Creator(submitButtonParams).getElement();
     }
-    const submitButton = new Creator(submitButtonParams).getElement();
     const cancelButton = new Creator(cancelButtonParams).getElement();
     const topContainer = new Creator(topContainerParams).getElement();
     topContainer.append(titleLabel, label);
@@ -84,6 +90,8 @@ export class FormView {
   getForm(task = null) {
     if (task) {
       this.build(task);
+    } else {
+      this.build();
     }
     return this.form;
   }
