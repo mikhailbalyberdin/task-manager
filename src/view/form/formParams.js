@@ -14,7 +14,7 @@ export const formParams = {
     "top-1/2",
     "left-1/2",
     "-translate-1/2",
-    "bg-white",
+    "app-form",
   ],
   tagName: "form",
   attr: { id: "form" },
@@ -45,7 +45,12 @@ export const labelParams = {
 export const realCheckboxParams = {
   class: ["real"],
   tagName: "input",
-  attr: { type: "checkbox", name: "favoriteBtn", id: "star" },
+  attr: {
+    type: "checkbox",
+    name: "favoriteBtn",
+    id: "star",
+    "data-checked": "",
+  },
 };
 
 export const fakeCheckboxParams = {
@@ -62,6 +67,7 @@ export const inputTextParams = {
     "rounded-md",
     "p-3",
     "bg-gray-500/10",
+    "app-input-text",
     "focus:shadow-[0px_0px_10px_rgba(0,0,0,0.25)]",
     "transition",
     "delay-150",
@@ -75,7 +81,7 @@ export const textAreaParams = {
     "w-full",
     "max-h-1/4",
     "h-full",
-    "bg-gray-500/10",
+    "app-textarea",
     "rounded-md",
     "p-3",
     "focus:shadow-[0px_0px_10px_rgba(0,0,0,0.25)]",

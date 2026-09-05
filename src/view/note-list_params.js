@@ -40,13 +40,13 @@ export const noteListButtonContainer = {
 };
 
 export const noteListDeleteButton = {
-  class: ["w-5", "h-5", "bg-[url(/trash-bin.svg)]", "bg-cover"],
+  class: ["w-5", "h-5", "app-list-trash", "bg-cover"],
   tagName: "button",
   attr: { "data-trash-btn": "" },
 };
 
 export const noteListEditButton = {
-  class: ["w-5", "h-5", "bg-[url(/edit.svg)]", "bg-cover"],
+  class: ["w-5", "h-5", "app-list-edit", "bg-cover"],
   attr: { "data-edit-btn": "" },
   tagName: "button",
 };
@@ -58,7 +58,7 @@ export const noteListFavoritesButton = {
 };
 
 export const noteListRegularButton = {
-  class: ["w-5", "h-5", "bg-[url(/regular.svg)]", "bg-cover"],
+  class: ["w-5", "h-5", "app-list-star", "bg-cover"],
   attr: { "data-status-btn": "" },
   tagName: "button",
 };

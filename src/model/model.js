@@ -68,8 +68,8 @@ export class Model {
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
-    if (this.structure[index].status !== formData.get("status")) {
-      this.structure[index].status = formData.get("status");
+    if (this.structure[index].status !== formData.get("favoriteBtn")) {
+      this.structure[index].status = formData.get("favoriteBtn");
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
@@ -99,7 +99,9 @@ export class Model {
 
   searchString(string) {
     const matchedArray = this.structure.filter(
-      (task) => task.title?.includes(string) || task.content?.includes(string),
+      (task) =>
+        task.title?.toLowerCase().includes(string.toLowerCase()) ||
+        task.content?.toLowerCase().includes(string.toLowerCase()),
     );
     return matchedArray;
   }

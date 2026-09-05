@@ -9,12 +9,20 @@ export const logoContainerParams = {
 };
 
 export const logoImageParams = {
-  class: ["block", "w-10", "h-10", "bg-[url(/note.svg)]", "bg-cover"],
+  class: [
+    "block",
+    "w-5",
+    "h-5",
+    "min-[400px]:w-10",
+    "min-[400px]:h-10",
+    "app-light",
+    "bg-cover",
+  ],
   tagName: "span",
 };
 
 export const logoTextParams = {
-  class: [],
+  class: ["text-sm", "min-[400px]:text-base"],
   tagName: "span",
   text: "Notes",
 };
@@ -33,13 +41,13 @@ export const searchParams = {
 };
 
 export const buttonParams = {
-  class: ["w-10", "h-10", "bg-[url(/night-mode-icon.svg)]", "bg-cover"],
+  class: ["w-10", "h-10", "app-button", "bg-cover"],
   tagName: "button",
   attr: { id: "nightMode" },
 };
 
 export const containerParams = {
-  class: ["flex", "justify-between", "p-3"],
+  class: ["flex", "justify-between", "items-center", "p-3"],
   tagName: "div",
 };
 

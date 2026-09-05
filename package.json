@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "lint": "eslint src/**/* --fix",
     "prettier": "prettier src/**/* --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "deploy": "gh-pages -d dist"
   },
   "lint-staged": {
     "src/**/*.js": "eslint --fix"
@@ -27,6 +28,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
+    "ghpages": "^0.0.10",
     "tailwindcss": "^4.1.18"
   }
 }

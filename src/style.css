@@ -1,6 +1,63 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
+#app.dark {
+    background-color: rgb(48, 47, 47);
+    color: white;
+    fill: white;
+    stroke: white;
+}
+
+#app {
+    --currentColor: black;
+}
+
+#app.dark {
+    --currentColor: white;
+}
+
+#app.dark .app-light{
+    background-image: url(../public/light_note.svg);
+}
+
+.app-light {
+    background-image: url(../public/note.svg);
+}
+
+.app-button {
+    background-image: url(../public/night-mode-icon.svg);
+}
+
+#app.dark .app-button {
+    background-image: url(../public/light-night-mode-icon.svg);
+}
+
+.app-list-edit {
+    background-image: url(../public/edit.svg);
+}
+
+#app.dark .app-list-edit {
+    background-image: url(../public/light-edit.svg);
+}
+
+.app-list-trash {
+    background-image: url(../public/trash-bin.svg);
+}
+
+#app.dark .app-list-trash {
+    background-image: url(../public/light-trash-bin.svg);
+}
+
+.app-list-star {
+    background-image: url(../public/regular.svg);
+}
+
+#app.dark .app-list-star {
+    background-image: url(../public/);
+}
+
+
+
 .fake-checkbox {
     display: inline-block;
     width: 20px;
@@ -13,6 +70,38 @@
     stroke: black;
 }
 
+.app-list-star {
+    background-image: url(../public/regular.svg);
+}
+
+#app.dark .app-list-star {
+    background-image: url(../public/light-regular.svg);
+}
+
+.app-form {
+    background-color: white;
+}
+
+#app.dark .app-form {
+    background-color: grey;
+}
+
+.app-textarea {
+    background-color: rgb(238, 232, 232);
+}
+
+#app.dark .app-textarea{
+    background-color: rgb(90, 88, 88);
+}
+
+.app-input-text {
+    background-color: rgb(238, 232, 232);
+}
+
+#app.dark .app-input-text{
+    background-color: rgb(90, 88, 88)   ;
+}
+
 .real {
     width: 0;
     position: absolute;
@@ -20,6 +109,8 @@
     opacity: 0;
 
 }
+
+
 
 .real:checked + .fake-checkbox>.fake-checkbox-svg {
     stroke: gold;
