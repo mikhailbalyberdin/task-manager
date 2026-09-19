@@ -9,6 +9,7 @@ export class Controller {
     this.formElement = new FormView();
     this.setListeners();
     this.formListener();
+    this.view.mainElement.list.build(this.model.structure);
     this.view.nightModeToggle(this.model.isNightMode);
     this.searchString();
   }
