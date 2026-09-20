@@ -1,11 +1,13 @@
 const nigthModeKey = "isNightMode";
 const structureKey = "newStructure";
+const arrayTypeKey = "arrayType";
 const defaultNightValue = false;
-
+const defaultTypeValue = "normalBtn";
 export class Model {
   constructor() {
     this.structure = this.structureInit();
     this.isNightMode = this.setDefaultMode();
+    this.arrayType = this.setDefaultType();
   }
 
   addToLocalStorage(key, value) {
@@ -14,6 +16,15 @@ export class Model {
 
   getFromLocalStorage(key) {
     return JSON.parse(localStorage.getItem(key));
+  }
+
+  setDefaultType() {
+    let isData = this.getFromLocalStorage(arrayTypeKey);
+    if (!isData) {
+      this.addToLocalStorage(arrayTypeKey, defaultTypeValue);
+      isData = defaultTypeValue;
+    }
+    return isData;
   }
 
   setDefaultMode() {
@@ -27,6 +38,13 @@ export class Model {
   setMode() {
     this.isNightMode = !this.isNightMode;
     this.addToLocalStorage(nigthModeKey, this.isNightMode);
+  }
+
+  setArrayType(type) {
+    if (type !== this.arrayType) {
+      this.arrayType = type;
+      this.addToLocalStorage(arrayTypeKey, this.arrayType);
+    }
   }
 
   structureInit() {

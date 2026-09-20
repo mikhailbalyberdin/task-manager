@@ -11,6 +11,7 @@ export class Controller {
     this.formListener();
     this.view.mainElement.list.build(this.model.structure);
     this.view.nightModeToggle(this.model.isNightMode);
+    this.view.mainElement.arrayBtnToggle(this.model.arrayType);
     this.searchString();
   }
 
@@ -107,9 +108,14 @@ export class Controller {
   eventHandler(event) {
     let isOpenBtn = event.target.closest("#openBtn");
     if (isOpenBtn) {
-      console.log(this.formElement.getForm());
       this.view.mainElement.add(this.formElement.getForm(null));
       this.view.mainElement.add(this.formElement.fadeBlock);
+    }
+
+    let arrayBtn = event.target.closest("[data-array-btn]");
+    if (arrayBtn) {
+      this.model.setArrayType(arrayBtn.id);
+      this.view.mainElement.arrayBtnToggle(this.model.arrayType);
     }
   }
 }

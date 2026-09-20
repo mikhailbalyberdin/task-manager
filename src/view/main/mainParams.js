@@ -28,13 +28,13 @@ export const addNotesButtonParams = {
 export const favBtnParams = {
   class: ["w-full", "bg-yellow-500", "rounded-md", "p-5", "text-center"],
   tagName: "button",
-  attr: { id: "favBtn" },
+  attr: { id: "favBtn", "data-array-btn": "" },
   text: "Favorite",
 };
 
 export const normalBtnParams = {
   class: ["w-full", "bg-yellow-500", "rounded-md", "p-2", "text-center"],
   tagName: "button",
-  attr: { id: "normalBtn" },
+  attr: { id: "normalBtn", "data-array-btn": "" },
   text: "All",
 };

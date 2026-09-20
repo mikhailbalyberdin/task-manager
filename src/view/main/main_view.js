@@ -24,9 +24,9 @@ export class MainView {
     const listButtonContainer = new Creator(
       listButtonContainerParams,
     ).getElement();
-    const favBtn = new Creator(favBtnParams).getElement();
-    const normalBtn = new Creator(normalBtnParams).getElement();
-    listButtonContainer.append(favBtn, normalBtn);
+    this.favBtn = new Creator(favBtnParams).getElement();
+    this.normalBtn = new Creator(normalBtnParams).getElement();
+    listButtonContainer.append(this.favBtn, this.normalBtn);
 
     buttonContainer.append(addNotesButton, listButtonContainer);
     this.container.append(buttonContainer);
@@ -39,5 +39,16 @@ export class MainView {
 
   add(element) {
     this.container.append(element);
+  }
+
+  arrayBtnToggle(arrayType) {
+    if (arrayType === "normalBtn") {
+      this.normalBtn.classList.add("active");
+      this.favBtn.classList.remove("active");
+    }
+    if (arrayType === "favBtn") {
+      this.normalBtn.classList.remove("active");
+      this.favBtn.classList.add("active");
+    }
   }
 }
