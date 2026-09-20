@@ -66,6 +66,12 @@ export class Model {
       isChanged: false, // isChanged is rewritten after submission
       date: this.setDate(),
     };
+    if (task.title.length < 1) {
+      task.title = "No title";
+    }
+    if (task.content.length < 1) {
+      task.content = "No content";
+    }
     console.log(task.status);
     console.log(formData);
 
