@@ -4,7 +4,15 @@ export const mainParams = {
 };
 
 export const containerParams = {
-  class: ["flex", "flex-col", "items-center", "p-10", "gap-10"],
+  class: [
+    "flex",
+    "flex-col",
+    "items-center",
+    "p-10",
+    "gap-10",
+    "h-[95vh]",
+    "pt-40",
+  ],
   tagName: "div",
 };
 

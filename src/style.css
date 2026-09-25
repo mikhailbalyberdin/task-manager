@@ -24,6 +24,10 @@
     background-image: url(../public/note.svg);
 }
 
+.icon {
+    background-image: url(../public/github-142-svgrepo-com.svg);
+}
+
 .app-button {
     background-image: url(../public/night-mode-icon.svg);
 }
@@ -120,5 +124,11 @@
 .active {
     box-shadow: 0 0 4px black;
 }
+
+.link {
+    color: rgb(48, 48, 241);
+    text-decoration: underline;
+}
+
 
 

@@ -1,5 +1,5 @@
 export const headerParams = {
-  class: ["border-b-2"],
+  class: ["border-b-2", "fixed", "w-screen", "z-1"],
   tagName: "header",
 };
 

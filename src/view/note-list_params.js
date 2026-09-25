@@ -1,5 +1,5 @@
 export const noteListParams = {
-  class: ["max-w-100", "w-full", "max-h-[430px]", "overflow-y-auto"],
+  class: ["max-w-100", "w-full", "max-h-[700px]", "overflow-y-auto"],
   tagName: "ul",
 };
 
