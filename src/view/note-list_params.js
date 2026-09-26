@@ -20,7 +20,13 @@ export const noteListHeaderContainer = {
 };
 
 export const noteListTitle = {
-  class: ["font-[600]", "text-blue-500", "text-[20px]"],
+  class: [
+    "font-[300]",
+    "text-blue-500",
+    "text-[15px]",
+    "min-[450px]:font-[600]",
+    "min-[450px]:text-[20px]",
+  ],
   tagName: "div",
 };
 

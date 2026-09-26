@@ -27,21 +27,42 @@ export const listButtonContainerParams = {
 };
 
 export const addNotesButtonParams = {
-  class: ["w-full", "bg-yellow-500", "rounded-md", "p-5", "text-center"],
+  class: [
+    "w-full",
+    "bg-yellow-500",
+    "rounded-md",
+    "p-3",
+    "min-[450px]:p-5",
+    "text-center",
+  ],
   tagName: "button",
   attr: { id: "openBtn" },
   text: "Add Note",
 };
 
 export const favBtnParams = {
-  class: ["w-full", "bg-yellow-500", "rounded-md", "p-5", "text-center"],
+  class: [
+    "w-full",
+    "bg-yellow-500",
+    "rounded-md",
+    "p-3",
+    "min-[450px]:p-5",
+    "text-center",
+  ],
   tagName: "button",
   attr: { id: "favBtn", "data-array-btn": "" },
   text: "Favorite",
 };
 
 export const normalBtnParams = {
-  class: ["w-full", "bg-yellow-500", "rounded-md", "p-2", "text-center"],
+  class: [
+    "w-full",
+    "bg-yellow-500",
+    "rounded-md",
+    "p-3",
+    "min-[450px]:p-5",
+    "text-center",
+  ],
   tagName: "button",
   attr: { id: "normalBtn", "data-array-btn": "" },
   text: "All",
