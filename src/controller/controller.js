@@ -1,7 +1,6 @@
 import { Model } from "../model/model";
 import { View } from "../view/view";
 import { FormView } from "../view/form/form_view";
-
 export class Controller {
   constructor() {
     this.model = new Model();
@@ -9,9 +8,9 @@ export class Controller {
     this.formElement = new FormView();
     this.setListeners();
     this.formListener();
-    this.view.mainElement.list.build(this.model.structure);
     this.view.nightModeToggle(this.model.isNightMode);
     this.view.mainElement.arrayBtnToggle(this.model.arrayType);
+    this.buildNoteList();
     this.searchString();
   }
 
