@@ -2,7 +2,6 @@ import Creator from "../creator.js";
 import {
   footerParams,
   containerParams,
-  linkWrapperParams,
   linkParams,
   linkTextParams,
   iconParams,
@@ -17,13 +16,11 @@ export class FooterView {
 
   build() {
     this.container = new Creator(containerParams).getElement();
-    this.linkWrapper = new Creator(linkWrapperParams).getElement();
     this.icon = new Creator(iconParams).getElement();
     this.link = new Creator(linkParams).getElement();
     this.linkText = new Creator(linkTextParams).getElement();
     this.link.append(this.icon, this.linkText);
-    this.linkWrapper.append(this.link);
-    this.container.append(this.linkWrapper);
+    this.container.append(this.link);
     this.footer.append(this.container);
   }
 }

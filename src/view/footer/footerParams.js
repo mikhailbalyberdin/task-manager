@@ -8,13 +8,8 @@ export const containerParams = {
   tagName: "div",
 };
 
-export const linkWrapperParams = {
-  class: [],
-  tagName: "span",
-};
-
 export const linkParams = {
-  class: ["link", "flex", "gap-5"],
+  class: ["link", "flex", "gap-2", "items-center"],
   tagName: "a",
   attr: {
     href: "https://github.com/mikhailbalyberdin/task-manager.git",
@@ -23,7 +18,7 @@ export const linkParams = {
 };
 
 export const linkTextParams = {
-  class: [],
+  class: ["dark:text-white"],
   tagName: "span",
   text: "mikhailbalyberdin",
 };
