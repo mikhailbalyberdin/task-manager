@@ -29,6 +29,15 @@ export class Controller {
     });
   }
 
+  buildNoteList() {
+    this.view.mainElement.list.clearList();
+    if (this.model.arrayType === "favBtn") {
+      this.view.mainElement.list.build(this.model.structure, true);
+    } else {
+      this.view.mainElement.list.build(this.model.structure);
+    }
+  }
+
   setListeners() {
     this.view.headerElement.header.addEventListener("click", (event) => {
       if (event.target.closest("#nightMode")) {
@@ -46,13 +55,11 @@ export class Controller {
       const isEditBtn = event.target.closest("[data-edit-btn]");
       if (isTrashBtn && this.isNodeElemId) {
         this.model.deleteTask(this.isNodeElemId);
-        this.view.mainElement.list.clearList();
-        this.view.mainElement.list.build(this.model.structure);
+        this.buildNoteList();
       }
       if (isStatusBtn && this.isNodeElemId) {
         this.model.changeStatus(this.isNodeElemId);
-        this.view.mainElement.list.clearList();
-        this.view.mainElement.list.build(this.model.structure);
+        this.buildNoteList();
       }
       if (isEditBtn && this.isNodeElemId) {
         const task = this.model.getTask(this.isNodeElemId);
@@ -81,8 +88,7 @@ export class Controller {
           event.preventDefault();
           console.log(event.target);
           this.model.prepareTask(event.target.closest("#form"));
-          this.view.mainElement.list.clearList();
-          this.view.mainElement.list.build(this.model.structure);
+          this.buildNoteList();
           this.formElement.selfRemove();
         }
       }
@@ -94,8 +100,7 @@ export class Controller {
           event.preventDefault();
           console.log(event.target);
           this.model.editTask(this.isNodeElemId, event.target.closest("#form"));
-          this.view.mainElement.list.clearList();
-          this.view.mainElement.list.build(this.model.structure);
+          this.buildNoteList();
           this.formElement.selfRemove();
         }
       }
