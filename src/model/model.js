@@ -87,16 +87,27 @@ export class Model {
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
+
+    if (!formData.get("title")) {
+      this.structure[index].title = "No title";
+    }
+
     if (this.structure[index].content !== formData.get("note")) {
       this.structure[index].content = formData.get("note");
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
+
+    if (!formData.get("content")) {
+      this.structure[index].content = "No content";
+    }
+
     if (this.structure[index].status !== formData.get("favoriteBtn")) {
       this.structure[index].status = formData.get("favoriteBtn");
       this.structure[index].date = this.setDate();
       this.structure[index].isChanged = true;
     }
+
     this.addToLocalStorage(structureKey, this.structure);
   }
 
