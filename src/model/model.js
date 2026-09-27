@@ -63,7 +63,7 @@ export class Model {
       title: formData.get("title"),
       content: formData.get("note"),
       status: formData.get("favoriteBtn"),
-      isChanged: false, // isChanged is rewritten after submission
+      isChanged: false,
       date: this.setDate(),
     };
     if (task.title.length < 1) {
@@ -72,12 +72,9 @@ export class Model {
     if (task.content.length < 1) {
       task.content = "No content";
     }
-    console.log(task.status);
-    console.log(formData);
 
     this.structure.push(task);
     this.addToLocalStorage(structureKey, this.structure);
-    console.log(task);
   }
 
   editTask(index, form) {
@@ -98,7 +95,7 @@ export class Model {
       this.structure[index].isChanged = true;
     }
 
-    if (!formData.get("content")) {
+    if (!formData.get("note")) {
       this.structure[index].content = "No content";
     }
 

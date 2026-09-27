@@ -11,7 +11,6 @@ export class FooterView {
   constructor() {
     this.footer = new Creator(footerParams).getElement();
     this.build();
-    console.log(this.footer);
   }
 
   build() {

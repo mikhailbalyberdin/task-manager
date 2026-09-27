@@ -62,7 +62,6 @@ export class Controller {
       }
       if (isEditBtn && this.isNodeElemId) {
         const task = this.model.getTask(this.isNodeElemId);
-        console.log(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.getForm(task));
         this.view.mainElement.add(this.formElement.fadeBlock);
       }
@@ -85,7 +84,6 @@ export class Controller {
       if (event.target.closest("#form")) {
         if (event.target.closest("#submit")) {
           event.preventDefault();
-          console.log(event.target);
           this.model.prepareTask(event.target.closest("#form"));
           this.buildNoteList();
           this.formElement.selfRemove();
@@ -97,7 +95,6 @@ export class Controller {
       if (event.target.closest("#form")) {
         if (event.target.closest("#edit")) {
           event.preventDefault();
-          console.log(event.target);
           this.model.editTask(this.isNodeElemId, event.target.closest("#form"));
           this.buildNoteList();
           this.formElement.selfRemove();

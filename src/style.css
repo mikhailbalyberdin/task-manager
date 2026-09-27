@@ -125,6 +125,10 @@
     box-shadow: 0 0 4px black;
 }
 
+#app.dark .active {
+    box-shadow: 0 0 4px white;
+}
+
 
 
 
